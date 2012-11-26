@@ -128,7 +128,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View v) {
         mMenuDrawer.setActiveView(v);
         mContentTextView.setText(((TextView) v).getText());
-        mMenuDrawer.closeMenu();
+//        mMenuDrawer.closeMenu();
         mActiveViewId = v.getId();
         Fragment newContent = null;
         switch (mActiveViewId) {

@@ -89,25 +89,36 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int white=0x7f040005;
     }
     public static final class drawable {
-        public static final int btn_back_selector=0x7f020000;
-        public static final int btn_search=0x7f020001;
-        public static final int btn_top_pressed=0x7f020002;
-        public static final int ic_action_refresh_dark=0x7f020003;
-        public static final int ic_action_select_all_dark=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int md__category_background=0x7f020006;
-        public static final int md__list_focused_holo=0x7f020007;
-        public static final int md__list_longpressed_holo=0x7f020008;
-        public static final int md__list_pressed_holo_dark=0x7f020009;
-        public static final int md__list_selector_background_transition_holo_dark=0x7f02000a;
-        public static final int md__list_selector_disabled_holo_dark=0x7f02000b;
-        public static final int md__list_selector_holo_dark=0x7f02000c;
-        public static final int menu_arrow=0x7f02000d;
-        public static final int menu_arrow_right=0x7f02000e;
-        public static final int menu_bg=0x7f02000f;
-        public static final int tab_button_select=0x7f020010;
-        public static final int tab_button_unselect=0x7f020011;
-        public static final int title_bk=0x7f020012;
+        public static final int bg_title=0x7f020000;
+        public static final int btn_back_selector=0x7f020001;
+        public static final int btn_search=0x7f020002;
+        public static final int btn_top_pressed=0x7f020003;
+        public static final int ic_action_refresh_dark=0x7f020004;
+        public static final int ic_action_select_all_dark=0x7f020005;
+        public static final int ic_dbgw=0x7f020006;
+        public static final int ic_dygw=0x7f020007;
+        public static final int ic_email=0x7f020008;
+        public static final int ic_hytz=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int ic_launcher2=0x7f02000b;
+        public static final int ic_list=0x7f02000c;
+        public static final int ic_ng=0x7f02000d;
+        public static final int ic_qstxl=0x7f02000e;
+        public static final int ic_tzgg=0x7f02000f;
+        public static final int ic_xxkw=0x7f020010;
+        public static final int md__category_background=0x7f020011;
+        public static final int md__list_focused_holo=0x7f020012;
+        public static final int md__list_longpressed_holo=0x7f020013;
+        public static final int md__list_pressed_holo_dark=0x7f020014;
+        public static final int md__list_selector_background_transition_holo_dark=0x7f020015;
+        public static final int md__list_selector_disabled_holo_dark=0x7f020016;
+        public static final int md__list_selector_holo_dark=0x7f020017;
+        public static final int menu_arrow=0x7f020018;
+        public static final int menu_arrow_right=0x7f020019;
+        public static final int menu_bg=0x7f02001a;
+        public static final int tab_button_select=0x7f02001b;
+        public static final int tab_button_unselect=0x7f02001c;
+        public static final int title_bk=0x7f02001d;
     }
     public static final class id {
         public static final int address=0x7f050009;
@@ -116,13 +127,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int content_frame=0x7f05000e;
         public static final int desc=0x7f050007;
         public static final int gallery=0x7f050004;
-        public static final int item1=0x7f050010;
-        public static final int item2=0x7f050011;
-        public static final int item3=0x7f050012;
-        public static final int item4=0x7f050013;
-        public static final int item5=0x7f050014;
-        public static final int item6=0x7f050015;
-        public static final int item7=0x7f050016;
+        public static final int item1=0x7f050011;
+        public static final int item2=0x7f050012;
+        public static final int item3=0x7f050013;
+        public static final int item4=0x7f050014;
+        public static final int item5=0x7f050015;
+        public static final int item6=0x7f050016;
+        public static final int item7=0x7f050017;
+        public static final int item8=0x7f050010;
         public static final int line0=0x7f05000d;
         public static final int listview=0x7f050005;
         /**  Used with View#setTag(int) to specify a position for the active view. 
@@ -137,7 +149,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /**  The ID of the menu container. 
          */
         public static final int md__menu=0x7f050002;
-        public static final int menu_settings=0x7f050017;
+        public static final int menu_settings=0x7f050018;
         public static final int scrollView=0x7f05000f;
         public static final int searchLayout=0x7f05000b;
         public static final int time=0x7f050008;
