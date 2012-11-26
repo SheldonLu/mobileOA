@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mzone.oa.ui.MenuScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_refresh_dark"
+            android:text="待办公文"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:id="@+id/item2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_select_all_dark"
+            android:text="待阅公文"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通知"
+            style="@style/MenuDrawer.Widget.Category" />
+
+        <TextView
+            android:id="@+id/item3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_refresh_dark"
+            android:text="会议通知"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:id="@+id/item4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_select_all_dark"
+            android:text="通知公告"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="信息"
+            style="@style/MenuDrawer.Widget.Category" />
+
+        <TextView
+            android:id="@+id/item5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_refresh_dark"
+            android:text="全市通讯录"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:id="@+id/item6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_select_all_dark"
+            android:text="邮件系统"
+            style="@style/MenuDrawer.Widget.Title" />
+        
+		<TextView
+            android:id="@+id/item7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_refresh_dark"
+            android:text="信息刊物"
+            style="@style/MenuDrawer.Widget.Title" />
+
+    </LinearLayout>
+</com.mzone.oa.ui.MenuScrollView>
