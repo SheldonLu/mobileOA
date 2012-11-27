@@ -37,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
                         android:text="标题"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -63,9 +63,10 @@
                         android:id="@+id/txt_content_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:paddingLeft="16dp"
                         android:text="正文"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -91,9 +92,10 @@
                         android:id="@+id/txt_level_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:paddingLeft="16dp"
                         android:text="等级"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Spinner
@@ -119,9 +121,10 @@
                         android:id="@+id/txt_person_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:paddingLeft="16dp"
                         android:text="经办人"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -147,16 +150,20 @@
                         android:id="@+id/txt_attachment_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:paddingLeft="16dp"
                         android:text="附件"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/txt_title"
-                        android:layout_width="fill_parent"
+                    <Button
+                        android:id="@+id/btn_attachment"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/txt_attachment_label" />
+                        android:layout_toRightOf="@id/txt_attachment_label"
+                        android:background="@drawable/btn1_selector"
+                        android:text="选择附件"
+                        android:textSize="14sp" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -164,7 +171,10 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="发布" />
+                android:background="@drawable/btn2_selector"
+                android:text="发布"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 
