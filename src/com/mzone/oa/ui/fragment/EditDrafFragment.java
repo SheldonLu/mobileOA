@@ -86,7 +86,7 @@ public class EditDrafFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				String title = mTitleEdt.getText().toString();
-				String content = mTitleEdt.getText().toString();
+				String content = mContentEdt.getText().toString();
 				String level = mItems[mSpinner.getSelectedItemPosition()];
 				String person = mPersonEdt.getText().toString();
 				String attachment = mAttachmentBtn.getText().toString();
@@ -109,7 +109,7 @@ public class EditDrafFragment extends Fragment {
 				todo.jinbanren = person;
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 				todo.time = sdf.format(Calendar.getInstance().getTime());
-				if(!TextUtils.isEmpty(attachment) && !attachment.equals("选择文件")) {
+				if(!TextUtils.isEmpty(attachment) && !attachment.equals("选择附件")) {
 					todo.fileName = attachment;
 					todo.filePath = mFilePath;
 				}
