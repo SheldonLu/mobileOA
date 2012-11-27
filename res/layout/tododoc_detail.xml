@@ -225,11 +225,11 @@
         	<RelativeLayout 
        	android:layout_below="@id/topLinearLayout"
 	    android:layout_alignParentBottom="true"
-	    android:paddingTop="50dp"
         android:paddingRight="8dp"
         android:paddingBottom="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/form_bg">
 
         <Button
             android:layout_alignParentRight="true"

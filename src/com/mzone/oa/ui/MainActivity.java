@@ -263,5 +263,9 @@ public class MainActivity extends FragmentActivity implements
 	public void onSucess() {
 		findViewById(R.id.item1).performClick();
 	}
+	
+	public void reSucess() {
+		findViewById(R.id.item1).performClick();
+	}
 
 }

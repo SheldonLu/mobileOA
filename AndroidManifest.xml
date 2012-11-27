@@ -33,6 +33,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".TodoDocumentDetailActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" 
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
         <activity

@@ -37,21 +37,12 @@ public class TodoDocumentFragment extends Fragment implements
 	public TodoDocumentFragment(Context context) {
 		this.context = context;
 	}
-
-	private ListView mListView;
-	private SimpleAdapter mAdapter;
-	private String[] mFrom;
-	private int[] mTo;
-	private List<Map<String, String>> mData;
-
+	
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.tododocument, null);
-		mListView = (ListView) view.findViewById(R.id.listview);
-		mTo = new int[] { R.id.title_txt, R.id.datetime_txt, R.id.content_txt };
-		mFrom = new String[] { "title_txt", "datetime_txt", "content_txt" };
-		mData = new ArrayList<Map<String, String>>();
+	public void onStart() {
+		super.onStart();
+		
+		mData.clear();
 		Map<String, String> map = null;
 		int length = Util.docBeans.size();
 		for(int i = 0;i<length;i++){
@@ -62,6 +53,33 @@ public class TodoDocumentFragment extends Fragment implements
 			map.put(mFrom[2], tb.suggess);
 			mData.add(map);
 		}
+		
+		mAdapter.notifyDataSetChanged();
+	}
+
+	private ListView mListView;
+	private SimpleAdapter mAdapter;
+	private String[] mFrom;
+	private int[] mTo;
+	private List<Map<String, String>> mData = new ArrayList<Map<String, String>>();
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.tododocument, null);
+		mListView = (ListView) view.findViewById(R.id.listview);
+		mTo = new int[] { R.id.title_txt, R.id.datetime_txt, R.id.content_txt };
+		mFrom = new String[] { "title_txt", "datetime_txt", "content_txt" };
+//		Map<String, String> map = null;
+//		int length = Util.docBeans.size();
+//		for(int i = 0;i<length;i++){
+//			map = new HashMap<String, String>();
+//			TodoDocumentBean tb = Util.docBeans.get(i);
+//			map.put(mFrom[0], tb.title);
+//			map.put(mFrom[1], tb.time);
+//			map.put(mFrom[2], tb.suggess);
+//			mData.add(map);
+//		}
 
 //		map.put(mFrom[0], "政协换届以来工作总结");
 //		map.put(mFrom[1], "12-10-21 10:12:44");

@@ -1,8 +1,9 @@
 package com.mzone.oa.ui;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -26,7 +27,7 @@ public class TodoDocumentDetailActivity extends Activity {
 			}
 		});
 		
-		TodoDocumentBean tb = Util.clickBean;
+		final TodoDocumentBean tb = Util.clickBean;
 		
 		((TextView)findViewById(R.id.txt_title)).setText(tb.title);
 		((TextView)findViewById(R.id.txt_content)).setText(tb.desc);
@@ -42,8 +43,27 @@ public class TodoDocumentDetailActivity extends Activity {
 				String yj = et.getText().toString();
 				Util.clickBean.suggess = yj;
 				
+				finish();
+				
 			}
 		});
+		
+		Button attachment = (Button)findViewById(R.id.btn_attachment);
+		
+		if(tb.filePath == null || tb.filePath.length() == 0){
+			attachment.setText("无附件");
+		}else{
+			attachment.setText(tb.fileName);
+			attachment.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					
+					MyFileManagerActivity.openFile(TodoDocumentDetailActivity.this, new File(tb.filePath));
+				}
+			});
+			
+		}
+		
 		
 		
 	}
