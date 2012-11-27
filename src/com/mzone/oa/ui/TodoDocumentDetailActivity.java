@@ -2,8 +2,15 @@ package com.mzone.oa.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.mzone.oa.bean.TodoDocumentBean;
+import com.mzone.oa.util.Util;
 
 public class TodoDocumentDetailActivity extends Activity {
 
@@ -18,6 +25,26 @@ public class TodoDocumentDetailActivity extends Activity {
 				onBackPressed();
 			}
 		});
+		
+		TodoDocumentBean tb = Util.clickBean;
+		
+		((TextView)findViewById(R.id.txt_title)).setText(tb.title);
+		((TextView)findViewById(R.id.txt_content)).setText(tb.desc);
+		((TextView)findViewById(R.id.spinner_level)).setText(tb.dengji);
+		((TextView)findViewById(R.id.txt_jinbanren)).setText(tb.jinbanren);
+		
+		final EditText et = (EditText)findViewById(R.id.txt_yj);
+		
+		
+		((Button)findViewById(R.id.txt_fb)).setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String yj = et.getText().toString();
+				Util.clickBean.suggess = yj;
+				
+			}
+		});
+		
 		
 	}
 	
