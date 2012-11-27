@@ -1,13 +1,5 @@
 package com.mzone.oa.ui;
 
-import com.mzone.oa.ui.fragment.AddressBookFragment;
-import com.mzone.oa.ui.fragment.ColorFragment;
-import com.mzone.oa.ui.fragment.EditDrafFragment;
-import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
-import com.mzone.oa.ui.fragment.NotificationPostFragment;
-import com.mzone.oa.ui.fragment.PublicationFragment;
-import com.mzone.oa.ui.fragment.WelcomeFragment;
-
 import net.simonvt.widget.MenuDrawer;
 import net.simonvt.widget.MenuDrawerManager;
 import android.os.Bundle;
@@ -16,8 +8,19 @@ import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+
+import com.mzone.oa.ui.fragment.AddressBookFragment;
+import com.mzone.oa.ui.fragment.ColorFragment;
+import com.mzone.oa.ui.fragment.EditDrafFragment;
+import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
+import com.mzone.oa.ui.fragment.NotificationPostFragment;
+import com.mzone.oa.ui.fragment.PublicationFragment;
+import com.mzone.oa.ui.fragment.WelcomeFragment;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener{
 
@@ -69,6 +72,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         findViewById(R.id.item6).setOnClickListener(this);
         findViewById(R.id.item7).setOnClickListener(this);
         findViewById(R.id.item8).setOnClickListener(this);
+        ImageButton imageButton = (ImageButton)findViewById(R.id.btn_menu);
+        imageButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				int drawerState = mMenuDrawer.getDrawerState();
+		        if (drawerState != MenuDrawer.STATE_OPEN && drawerState != MenuDrawer.STATE_OPENING) {
+		            mMenuDrawer.openMenu();
+		            return;
+		        }
+				
+			}
+		});
 
         
         TextView activeView = (TextView) findViewById(mActiveViewId);
@@ -174,6 +190,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 			// 信息刊物
 			setSearchVisibility(true);
 			newContent = new PublicationFragment(this);
+			break;
+		case R.id.btn_menu:
+			int drawerState = mMenuDrawer.getDrawerState();
+	        if (drawerState != MenuDrawer.STATE_OPEN && drawerState != MenuDrawer.STATE_OPENING) {
+//	            mMenuDrawer.closeMenu();
+	            mMenuDrawer.openMenu();
+	            return;
+	        }
 			break;
 
 		default:
