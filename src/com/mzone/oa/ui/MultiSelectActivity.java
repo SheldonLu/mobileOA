@@ -52,12 +52,12 @@ public class MultiSelectActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contact_list);
 		CALLBACK = "";
-		mPerson.add("张三");
-		mPerson.add("李四");
-		mPerson.add("王五");
-		mPerson.add("赵六");
-		mPerson.add("王朝");
-		mPerson.add("马汉");
+		mPerson.add("王进喜");
+		mPerson.add("李成龙");
+		mPerson.add("王建国");
+		mPerson.add("赵斌");
+		mPerson.add("王学斌");
+		mPerson.add("马应元");
 
 		
 		mBack=(ImageButton)findViewById(R.id.btn_back);
