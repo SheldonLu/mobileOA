@@ -69,6 +69,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         findViewById(R.id.item5).setOnClickListener(this);
         findViewById(R.id.item6).setOnClickListener(this);
         findViewById(R.id.item7).setOnClickListener(this);
+        findViewById(R.id.item8).setOnClickListener(this);
         ImageButton imageButton = (ImageButton)findViewById(R.id.btn_menu);
         imageButton.setOnClickListener(new OnClickListener() {
 			
