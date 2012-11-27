@@ -4,4 +4,4 @@ gen/*
 bin/*
 
 /gen
-/project.properties
+project.properties
