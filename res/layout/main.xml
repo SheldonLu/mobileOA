@@ -15,6 +15,7 @@
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/md__transparent"
             android:src="@drawable/ic_list" />
 
         <TextView
@@ -35,22 +36,10 @@
 	            android:id="@+id/btn_back"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
+	            android:layout_centerVertical="true"
 	            android:layout_alignParentRight="true"
-	            android:background="@drawable/btn_back_selector"
-	            android:src="@drawable/btn_search" />
+	            android:background="@color/md__transparent"/>
 	
-	        <View
-	            android:id="@+id/line0"
-	            android:layout_width="1px"
-	            android:layout_height="fill_parent"
-	            android:layout_toLeftOf="@id/btn_back"
-	            android:background="#aa11264f" />
-	
-	        <View
-	            android:layout_width="1px"
-	            android:layout_height="fill_parent"
-	            android:layout_toLeftOf="@id/line0"
-	            android:background="#009ad6" />
         </RelativeLayout>
         
 

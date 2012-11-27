@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.mzone.oa.ui.R;
+import com.mzone.oa.ui.TodoDocumentDetailActivity;
 
 // 待办公文
 public class TodoDocumentFragment extends Fragment implements
@@ -72,6 +74,9 @@ public class TodoDocumentFragment extends Fragment implements
 	public void onItemClick(AdapterView<?> adapterView, View view,
 			int position, long arg3) {
 		if(position<mData.size()){
+			Intent intent = new Intent(context,TodoDocumentDetailActivity.class);
+			startActivity(intent);
+			getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right); 
 			
 		}
 	}
