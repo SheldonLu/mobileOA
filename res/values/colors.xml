@@ -10,5 +10,8 @@
     <color name="base_bg">#f0f0f8</color>
     
     <color name="color_list_desc">#ff777777</color>
-    
+    <color name="color999">#999</color>
+	<color name="color000">#000</color>
+	<color name="color333">#333</color>
+	<color name="colorCccccc">#cccccc</color>
 </resources>

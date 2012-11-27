@@ -20,6 +20,7 @@ import com.mzone.oa.ui.fragment.EditDrafFragment;
 import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
 import com.mzone.oa.ui.fragment.NotificationPostFragment;
 import com.mzone.oa.ui.fragment.PublicationFragment;
+import com.mzone.oa.ui.fragment.TodoDocumentFragment;
 import com.mzone.oa.ui.fragment.WelcomeFragment;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener{
@@ -159,7 +160,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 		case R.id.item1:
 			// 待办公文
 			setSearchVisibility(false);
-			newContent = new ColorFragment(R.color.red);
+			newContent =   new TodoDocumentFragment(this);
 			break;
 		case R.id.item2:
 			// 待阅公文
