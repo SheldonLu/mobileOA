@@ -6,6 +6,7 @@ public class TodoDocumentBean {
 	public String time;
 	public String dengji;
 	public String jinbanren;
-	public String address;
+	public String fileName;
+	public String filePath;
 	public String suggess;
 }
