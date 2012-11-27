@@ -228,8 +228,9 @@ public class MainActivity extends FragmentActivity implements
 		if (EditDrafFragment.FILE_RESULT_CODE == requestCode) {
 			Bundle bundle = null;
 			if (data != null && (bundle = data.getExtras()) != null) {
-				Toast.makeText(this, bundle.getString("file"),
-						Toast.LENGTH_LONG).show();
+				((EditDrafFragment) getSupportFragmentManager()
+						.findFragmentById(R.id.content_frame))
+						.setAttachmentText(bundle.getString("fileName"),bundle.getString("filePath"));
 			}
 		} else  {
 			if (data != null) {
