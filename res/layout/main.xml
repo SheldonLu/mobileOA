@@ -7,7 +7,7 @@
 	<RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="48dip"
-        android:background="@drawable/title_bk" >
+        android:background="@drawable/title_bk2" >
 
         <TextView
             android:id="@+id/contentText"
