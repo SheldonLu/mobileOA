@@ -5,4 +5,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
 
+    <string-array name="levelname">
+        <item>等级1</item>
+        <item>等级2 </item>
+        <item>等级3</item>
+        <item>等级4</item>
+    </string-array>
+
 </resources>

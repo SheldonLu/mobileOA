@@ -66,6 +66,8 @@ public class TodoDocumentFragment extends Fragment implements
 		mAdapter = new SimpleAdapter(context, mData,
 				R.layout.tododocument_item, mFrom, mTo);
 		mListView.setAdapter(mAdapter);
+		mListView.setCacheColorHint(0);
+		mListView.setDividerHeight(0);
 		mListView.setOnItemClickListener(this);
 		return view;
 	}
