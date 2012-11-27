@@ -8,15 +8,27 @@
         android:layout_height="48dip"
         android:background="@drawable/title_bk2" >
         
-		<ImageButton
-            android:id="@+id/btn_menu"
-            android:layout_centerVertical="true"
+        <ImageButton
+            android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/top_back_leftpress" />
+            android:src="@drawable/btn_back" />
+
+        <View
+            android:id="@+id/line0"
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/btn_back"
+            android:background="#aa11264f" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@id/line0"
+            android:background="#009ad6" />
 
         <TextView
-            android:id="@+id/contentText"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
