@@ -21,6 +21,7 @@ import com.mzone.oa.ui.fragment.EditDrafFragment;
 import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
 import com.mzone.oa.ui.fragment.NotificationPostFragment;
 import com.mzone.oa.ui.fragment.PublicationFragment;
+import com.mzone.oa.ui.fragment.ToReadDocumentFragment;
 import com.mzone.oa.ui.fragment.TodoDocumentFragment;
 import com.mzone.oa.ui.fragment.WelcomeFragment;
 
@@ -115,6 +116,9 @@ public class MainActivity extends FragmentActivity implements
 				.getParcelable(STATE_MENUDRAWER));
 	}
 
+
+
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -167,7 +171,7 @@ public class MainActivity extends FragmentActivity implements
 		case R.id.item2:
 			// 待阅公文
 			setSearchVisibility(false);
-			newContent = new ColorFragment(R.color.green);
+			newContent = new ToReadDocumentFragment(this);
 			break;
 		case R.id.item3:
 			// 会议通知
@@ -216,7 +220,6 @@ public class MainActivity extends FragmentActivity implements
 		searchLayout.setVisibility(show ? View.VISIBLE : View.GONE);
 	}
 
-	@Override
 	public void openFile() {
 		Intent intent = new Intent(MainActivity.this,
 				MyFileManagerActivity.class);
@@ -228,9 +231,22 @@ public class MainActivity extends FragmentActivity implements
 		if (EditDrafFragment.FILE_RESULT_CODE == requestCode) {
 			Bundle bundle = null;
 			if (data != null && (bundle = data.getExtras()) != null) {
-				Toast.makeText(this, bundle.getString("file"), Toast.LENGTH_LONG).show();
+				Toast.makeText(this, bundle.getString("file"),
+						Toast.LENGTH_LONG).show();
+			}
+		} else if (MultiSelectActivity.CONTACT_RESULT_CODE == requestCode) {
+			if (data != null) {
+				Bundle extras = data.getExtras();
+				if (extras != null && extras.getString("name") != null) {
+					Toast.makeText(this, extras.getString("name"),
+							Toast.LENGTH_SHORT).show();
+				}
+			} else {
+				Toast.makeText(this, MultiSelectActivity.CALLBACK,
+						Toast.LENGTH_SHORT).show();
 			}
 		}
+
 	}
 
 }

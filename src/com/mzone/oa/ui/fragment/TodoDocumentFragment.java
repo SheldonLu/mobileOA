@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.mzone.oa.ui.MultiSelectActivity;
 import com.mzone.oa.ui.R;
 import com.mzone.oa.ui.TodoDocumentDetailActivity;
 
@@ -75,6 +77,7 @@ public class TodoDocumentFragment extends Fragment implements
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view,
 			int position, long arg3) {
+
 		if(position<mData.size()){
 			Intent intent = new Intent(context,TodoDocumentDetailActivity.class);
 			startActivity(intent);
@@ -82,7 +85,5 @@ public class TodoDocumentFragment extends Fragment implements
 			
 		}
 	}
-	
-	
 
 }
