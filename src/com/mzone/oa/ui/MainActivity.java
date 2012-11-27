@@ -24,6 +24,7 @@ import com.mzone.oa.ui.fragment.PublicationFragment;
 import com.mzone.oa.ui.fragment.ToReadDocumentFragment;
 import com.mzone.oa.ui.fragment.TodoDocumentFragment;
 import com.mzone.oa.ui.fragment.WelcomeFragment;
+import com.mzone.oa.util.Util;
 
 public class MainActivity extends FragmentActivity implements
 		View.OnClickListener, EditDrafFragment.CallBack {
@@ -39,6 +40,13 @@ public class MainActivity extends FragmentActivity implements
 	private int screenWidth;
 	private RelativeLayout searchLayout;
 
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		Util.clickBean = null;
+		Util.docBeans = null;
+	}
+	
 	@Override
 	public void onCreate(Bundle inState) {
 		super.onCreate(inState);
