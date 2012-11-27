@@ -2,6 +2,7 @@ package com.mzone.oa.ui;
 
 import net.simonvt.widget.MenuDrawer;
 import net.simonvt.widget.MenuDrawerManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 import com.mzone.oa.ui.fragment.AddressBookFragment;
 import com.mzone.oa.ui.fragment.ColorFragment;
@@ -23,144 +24,145 @@ import com.mzone.oa.ui.fragment.PublicationFragment;
 import com.mzone.oa.ui.fragment.TodoDocumentFragment;
 import com.mzone.oa.ui.fragment.WelcomeFragment;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener{
+public class MainActivity extends FragmentActivity implements
+		View.OnClickListener, EditDrafFragment.CallBack {
 
-    private static final String STATE_MENUDRAWER = "com.mzone.oa.ui.MainActivity.menuDrawer";
-    private static final String STATE_ACTIVE_VIEW_ID = "com.mzone.oa.ui.MainActivity.activeViewId";
-	
-    private MenuDrawerManager mMenuDrawer;
-    private TextView mContentTextView;
+	private static final String STATE_MENUDRAWER = "com.mzone.oa.ui.MainActivity.menuDrawer";
+	private static final String STATE_ACTIVE_VIEW_ID = "com.mzone.oa.ui.MainActivity.activeViewId";
 
-    private int mActiveViewId;
-    
-    private int screenWidth;
-    private RelativeLayout searchLayout;
+	private MenuDrawerManager mMenuDrawer;
+	private TextView mContentTextView;
 
-    @Override
-    public void onCreate(Bundle inState) {
-        super.onCreate(inState);
-        
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        //窗口的宽度
-        screenWidth = dm.widthPixels;
-        
-        if (inState != null) {
-            mActiveViewId = inState.getInt(STATE_ACTIVE_VIEW_ID);
-        }
+	private int mActiveViewId;
 
-        mMenuDrawer = new MenuDrawerManager(this, MenuDrawer.MENU_DRAG_WINDOW);
-        mMenuDrawer.setContentView(R.layout.main);
-        mMenuDrawer.setMenuView(R.layout.menu_scrollview);
+	private int screenWidth;
+	private RelativeLayout searchLayout;
 
-        MenuScrollView msv = (MenuScrollView) mMenuDrawer.getMenuView();
-        msv.setOnScrollChangedListener(new MenuScrollView.OnScrollChangedListener() {
-            @Override
-            public void onScrollChanged() {
-                mMenuDrawer.getMenuDrawer().invalidate();
-            }
-        });
-        
-        searchLayout = (RelativeLayout)findViewById(R.id.searchLayout);
+	@Override
+	public void onCreate(Bundle inState) {
+		super.onCreate(inState);
 
-        mContentTextView = (TextView) findViewById(R.id.contentText);
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		// 窗口的宽度
+		screenWidth = dm.widthPixels;
 
-        findViewById(R.id.item1).setOnClickListener(this);
-        findViewById(R.id.item2).setOnClickListener(this);
-        findViewById(R.id.item3).setOnClickListener(this);
-        findViewById(R.id.item4).setOnClickListener(this);
-        findViewById(R.id.item5).setOnClickListener(this);
-        findViewById(R.id.item6).setOnClickListener(this);
-        findViewById(R.id.item7).setOnClickListener(this);
-        findViewById(R.id.item8).setOnClickListener(this);
-        ImageButton imageButton = (ImageButton)findViewById(R.id.btn_menu);
-        imageButton.setOnClickListener(new OnClickListener() {
-			
+		if (inState != null) {
+			mActiveViewId = inState.getInt(STATE_ACTIVE_VIEW_ID);
+		}
+
+		mMenuDrawer = new MenuDrawerManager(this, MenuDrawer.MENU_DRAG_WINDOW);
+		mMenuDrawer.setContentView(R.layout.main);
+		mMenuDrawer.setMenuView(R.layout.menu_scrollview);
+
+		MenuScrollView msv = (MenuScrollView) mMenuDrawer.getMenuView();
+		msv.setOnScrollChangedListener(new MenuScrollView.OnScrollChangedListener() {
 			@Override
-			public void onClick(View v) {
-				int drawerState = mMenuDrawer.getDrawerState();
-		        if (drawerState != MenuDrawer.STATE_OPEN && drawerState != MenuDrawer.STATE_OPENING) {
-		            mMenuDrawer.openMenu();
-		            return;
-		        }
-				
+			public void onScrollChanged() {
+				mMenuDrawer.getMenuDrawer().invalidate();
 			}
 		});
 
-        
-        TextView activeView = (TextView) findViewById(mActiveViewId);
-        if (activeView != null) {
-            mMenuDrawer.setActiveView(activeView);
-            mContentTextView.setText(activeView.getText());
-            // TODO 替换Fragment
-        }else{
-        	Fragment welcome = new WelcomeFragment(this);
-        	getSupportFragmentManager()
-        	.beginTransaction()
-        	.replace(R.id.content_frame, welcome)
-        	.commit();
-        }
-        
-        
+		searchLayout = (RelativeLayout) findViewById(R.id.searchLayout);
 
-        // This will animate the drawer open and closed until the user manually drags it. Usually this would only be
-        // called on first launch.
-        mMenuDrawer.getMenuDrawer().peekDrawer();
-        mMenuDrawer.getMenuDrawer().setDropShadowEnabled(false);
-    }
+		mContentTextView = (TextView) findViewById(R.id.contentText);
 
-    @Override
-    protected void onRestoreInstanceState(Bundle inState) {
-        super.onRestoreInstanceState(inState);
-        mMenuDrawer.onRestoreDrawerState(inState.getParcelable(STATE_MENUDRAWER));
-    }
+		findViewById(R.id.item1).setOnClickListener(this);
+		findViewById(R.id.item2).setOnClickListener(this);
+		findViewById(R.id.item3).setOnClickListener(this);
+		findViewById(R.id.item4).setOnClickListener(this);
+		findViewById(R.id.item5).setOnClickListener(this);
+		findViewById(R.id.item6).setOnClickListener(this);
+		findViewById(R.id.item7).setOnClickListener(this);
+		findViewById(R.id.item8).setOnClickListener(this);
+		ImageButton imageButton = (ImageButton) findViewById(R.id.btn_menu);
+		imageButton.setOnClickListener(new OnClickListener() {
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(STATE_MENUDRAWER, mMenuDrawer.onSaveDrawerState());
-        outState.putInt(STATE_ACTIVE_VIEW_ID, mActiveViewId);
-    }
+			@Override
+			public void onClick(View v) {
+				int drawerState = mMenuDrawer.getDrawerState();
+				if (drawerState != MenuDrawer.STATE_OPEN
+						&& drawerState != MenuDrawer.STATE_OPENING) {
+					mMenuDrawer.openMenu();
+					return;
+				}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mMenuDrawer.toggleMenu();
-                return true;
-        }
+			}
+		});
 
-        return super.onOptionsItemSelected(item);
-    }
+		TextView activeView = (TextView) findViewById(mActiveViewId);
+		if (activeView != null) {
+			mMenuDrawer.setActiveView(activeView);
+			mContentTextView.setText(activeView.getText());
+			// TODO 替换Fragment
+		} else {
+			Fragment welcome = new WelcomeFragment(this);
+			getSupportFragmentManager().beginTransaction()
+					.replace(R.id.content_frame, welcome).commit();
+		}
 
-    @Override
-    public void onBackPressed() {
-        final int drawerState = mMenuDrawer.getDrawerState();
-        if (drawerState == MenuDrawer.STATE_OPEN || drawerState == MenuDrawer.STATE_OPENING) {
-            mMenuDrawer.closeMenu();
-            return;
-        }
+		// This will animate the drawer open and closed until the user manually
+		// drags it. Usually this would only be
+		// called on first launch.
+		mMenuDrawer.getMenuDrawer().peekDrawer();
+		mMenuDrawer.getMenuDrawer().setDropShadowEnabled(false);
+	}
 
-        super.onBackPressed();
-    }
+	@Override
+	protected void onRestoreInstanceState(Bundle inState) {
+		super.onRestoreInstanceState(inState);
+		mMenuDrawer.onRestoreDrawerState(inState
+				.getParcelable(STATE_MENUDRAWER));
+	}
 
-    @Override
-    public void onClick(View v) {
-        mMenuDrawer.setActiveView(v);
-        mContentTextView.setText(((TextView) v).getText());
-        mMenuDrawer.closeMenu();
-        mActiveViewId = v.getId();
-        Fragment newContent = null;
-        switch (mActiveViewId) {
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putParcelable(STATE_MENUDRAWER,
+				mMenuDrawer.onSaveDrawerState());
+		outState.putInt(STATE_ACTIVE_VIEW_ID, mActiveViewId);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			mMenuDrawer.toggleMenu();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onBackPressed() {
+		final int drawerState = mMenuDrawer.getDrawerState();
+		if (drawerState == MenuDrawer.STATE_OPEN
+				|| drawerState == MenuDrawer.STATE_OPENING) {
+			mMenuDrawer.closeMenu();
+			return;
+		}
+
+		super.onBackPressed();
+	}
+
+	@Override
+	public void onClick(View v) {
+		mMenuDrawer.setActiveView(v);
+		mContentTextView.setText(((TextView) v).getText());
+		mMenuDrawer.closeMenu();
+		mActiveViewId = v.getId();
+		Fragment newContent = null;
+		switch (mActiveViewId) {
 		case R.id.item8:
 			// 拟稿
 			setSearchVisibility(false);
-			newContent = new EditDrafFragment();
+			newContent = new EditDrafFragment(this);
 			break;
 		case R.id.item1:
 			// 待办公文
 			setSearchVisibility(false);
-			newContent =   new TodoDocumentFragment(this);
+			newContent = new TodoDocumentFragment(this);
 			break;
 		case R.id.item2:
 			// 待阅公文
@@ -194,24 +196,41 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 			break;
 		case R.id.btn_menu:
 			int drawerState = mMenuDrawer.getDrawerState();
-	        if (drawerState != MenuDrawer.STATE_OPEN && drawerState != MenuDrawer.STATE_OPENING) {
-//	            mMenuDrawer.closeMenu();
-	            mMenuDrawer.openMenu();
-	            return;
-	        }
+			if (drawerState != MenuDrawer.STATE_OPEN
+					&& drawerState != MenuDrawer.STATE_OPENING) {
+				// mMenuDrawer.closeMenu();
+				mMenuDrawer.openMenu();
+				return;
+			}
 			break;
 
 		default:
 			break;
 		}
-        
-		getSupportFragmentManager()
-		.beginTransaction()
-		.replace(R.id.content_frame, newContent)
-		.commit();
-    }
-    
-    private void setSearchVisibility(boolean show){
-    	searchLayout.setVisibility(show?View.VISIBLE:View.GONE);
-    }
+
+		getSupportFragmentManager().beginTransaction()
+				.replace(R.id.content_frame, newContent).commit();
+	}
+
+	private void setSearchVisibility(boolean show) {
+		searchLayout.setVisibility(show ? View.VISIBLE : View.GONE);
+	}
+
+	@Override
+	public void openFile() {
+		Intent intent = new Intent(MainActivity.this,
+				MyFileManagerActivity.class);
+		startActivityForResult(intent, EditDrafFragment.FILE_RESULT_CODE);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (EditDrafFragment.FILE_RESULT_CODE == requestCode) {
+			Bundle bundle = null;
+			if (data != null && (bundle = data.getExtras()) != null) {
+				Toast.makeText(this, bundle.getString("file"), Toast.LENGTH_LONG).show();
+			}
+		}
+	}
+
 }
