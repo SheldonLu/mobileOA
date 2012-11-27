@@ -1,48 +1,43 @@
 package com.mzone.oa.ui;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
- * @author zuolongsnail@163.com MultiSelectActivity
+
  */
 public class MultiSelectActivity extends Activity implements
 		OnItemClickListener {
+	private List<String> mPerson = new ArrayList<String>();
+
 	public static final int CONTACT_RESULT_CODE = 22;
-	public static String CALLBACK="";
-	
+	public static String CALLBACK = "";
+
 	private static final String TAG = "MultiSelectActivity";
 	private ListView contactsDelList;
 
-	private Cursor cursor;
 	private ContactsDeleteAdapter contactsDeleteAdapter;
 
-	private static final String[] PROJECTION = new String[] {
-			ContactsContract.Contacts._ID,
-			ContactsContract.Contacts.DISPLAY_NAME };
-	private static final int CONTACTS_ID_INDEX = 0;
-	private static final int DISPLAY_NAME_INDEX = 1;
 	private ContactsDeleteListItemViews holderViews;
 
 	private final class ContactsDeleteListItemViews {
@@ -50,11 +45,38 @@ public class MultiSelectActivity extends Activity implements
 		CheckBox delCheckBox;
 	}
 
+	private ImageButton mBack;
+	private ImageButton mOk;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contact_list);
-		CALLBACK="";
+		CALLBACK = "";
+		mPerson.add("张三");
+		mPerson.add("李四");
+		mPerson.add("王五");
+		mPerson.add("赵六");
+		mPerson.add("王朝");
+		mPerson.add("马汉");
+
+		
+		mBack=(ImageButton)findViewById(R.id.btn_back);
+		mOk=(ImageButton)findViewById(R.id.btn_ok);
+		mBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				contactsDeleteAdapter.delContactsIdSet.clear();
+				onBackPressed();
+			}
+		});
+		mOk.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 		contactsDelList = (ListView) findViewById(R.id.listview);
 
 		contactsDelList.setOnItemClickListener(this);
@@ -68,26 +90,27 @@ public class MultiSelectActivity extends Activity implements
 
 	// 查询数据库
 	private void refreshData() {
-		Uri uri = Uri.parse("content://com.android.contacts/contacts");// 查找手机所有联系人
+		// Uri uri = Uri.parse("content://com.android.contacts/contacts");//
+		// 查找手机所有联系人
 
-		cursor = getContentResolver().query(uri, PROJECTION, null, null, null);
-		contactsDeleteAdapter = new ContactsDeleteAdapter(this, cursor);
+		// cursor = getContentResolver().query(uri, PROJECTION, null, null,
+		// null);
+		contactsDeleteAdapter = new ContactsDeleteAdapter(this);
 		contactsDelList.setAdapter(contactsDeleteAdapter);
 	}
 
 	class ContactsDeleteAdapter extends BaseAdapter {
-		Cursor cur;
 		Map<Integer, Boolean> selectedMap;
 		HashSet<String> delContactsIdSet;
 
-		public ContactsDeleteAdapter(Context context, Cursor c) {
-			cur = c;
+		public ContactsDeleteAdapter(Context context) {
+
 			// 保存每条记录是否被选中的状态
 			selectedMap = new HashMap<Integer, Boolean>();
 			// 保存被选中记录作数据库表中的Id
 			delContactsIdSet = new HashSet<String>();
 
-			for (int i = 0; i < cur.getCount(); i++) {
+			for (int i = 0; i < mPerson.size(); i++) {
 				selectedMap.put(i, false);
 			}
 		}
@@ -104,35 +127,29 @@ public class MultiSelectActivity extends Activity implements
 						.findViewById(R.id.selected_ck);
 				convertView.setTag(holderViews);
 			}
-			cur.moveToPosition(position);
+
 			ContactsDeleteListItemViews views = (ContactsDeleteListItemViews) convertView
 					.getTag();
-			final String name = cur.getString(DISPLAY_NAME_INDEX);
+			final String name = mPerson.get(position);
 			views.nameView.setText(name);
 			views.delCheckBox.setChecked(selectedMap.get(position));
 			// 保存记录Id
 			if (selectedMap.get(position)) {
-				delContactsIdSet.add(String.valueOf(cur
-						.getString(DISPLAY_NAME_INDEX)));
+				delContactsIdSet.add(name);
 			} else {
-				delContactsIdSet.remove(String.valueOf(cur
-						.getString(DISPLAY_NAME_INDEX)));
+				delContactsIdSet.remove(name);
 			}
 			return convertView;
 		}
 
 		@Override
 		public int getCount() {
-			return cur.getCount();
+			return mPerson.size();
 		}
 
 		@Override
 		public Object getItem(int position) {
-			if (cur.moveToPosition(position)) {
-				return cur;
-			} else {
-				return null;
-			}
+			return mPerson.get(position);
 		}
 
 		@Override
@@ -156,23 +173,24 @@ public class MultiSelectActivity extends Activity implements
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-//		Iterator<String> it=contactsDeleteAdapter.delContactsIdSet.iterator();
-//		String str="";
-//		while(it.hasNext()){
-//			str+=it.next()+",";
-//		}
-//		Toast.makeText(this,"", Toast.LENGTH_SHORT)
-//		.show();
-//		
+		// Iterator<String>
+		// it=contactsDeleteAdapter.delContactsIdSet.iterator();
+		// String str="";
+		// while(it.hasNext()){
+		// str+=it.next()+",";
+		// }
+		// Toast.makeText(this,"", Toast.LENGTH_SHORT)
+		// .show();
+		//
 		Bundle bundle = new Bundle();
-        bundle.putString("name", contactsDeleteAdapter.delContactsIdSet.toString());
-        Intent intent = new Intent();
-        intent.putExtras(bundle);
-        // 返回intent
-        setResult(RESULT_OK, intent);
-        CALLBACK= contactsDeleteAdapter.delContactsIdSet.toString();
-        finish();
+		bundle.putString("name",
+				contactsDeleteAdapter.delContactsIdSet.toString());
+		Intent intent = new Intent();
+		intent.putExtras(bundle);
+		// 返回intent
+		setResult(RESULT_OK, intent);
+		CALLBACK = contactsDeleteAdapter.delContactsIdSet.toString();
+		finish();
 	}
-	
-	
+
 }
