@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:background="@color/md__transparent"
             android:padding="4dip"
-            android:src="@drawable/btn_back" android:visibility="invisible" />
+            android:src="@drawable/btn_back"/>
 
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:background="@color/md__transparent"
             android:padding="4dip"
-            android:src="@drawable/btn_back" android:layout_alignParentRight="true" />
+            android:src="@drawable/btn_ok" android:layout_alignParentRight="true" android:scaleType="centerInside"></ImageButton>"
         
           <View
             android:id="@+id/line0"

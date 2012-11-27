@@ -3,28 +3,25 @@ package com.mzone.oa.ui;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
 
@@ -48,6 +45,8 @@ public class MultiSelectActivity extends Activity implements
 		CheckBox delCheckBox;
 	}
 
+	private ImageButton mBack;
+	private ImageButton mOk;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,6 +59,23 @@ public class MultiSelectActivity extends Activity implements
 		mPerson.add("王朝");
 		mPerson.add("马汉");
 
+		
+		mBack=(ImageButton)findViewById(R.id.btn_back);
+		mOk=(ImageButton)findViewById(R.id.btn_ok);
+		mBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+		mOk.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 		contactsDelList = (ListView) findViewById(R.id.listview);
 
 		contactsDelList.setOnItemClickListener(this);
