@@ -18,16 +18,10 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener{
+public class MainActivity2 extends FragmentActivity implements View.OnClickListener{
 
-    private static final String STATE_MENUDRAWER = "com.mzone.oa.ui.MainActivity.menuDrawer";
-    private static final String STATE_ACTIVE_VIEW_ID = "com.mzone.oa.ui.MainActivity.activeViewId";
-	
-    private MenuDrawerManager mMenuDrawer;
     private TextView mContentTextView;
 
-    private int mActiveViewId;
-    
     private int screenWidth;
     private RelativeLayout searchLayout;
 
@@ -40,21 +34,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //窗口的宽度
         screenWidth = dm.widthPixels;
         
-        if (inState != null) {
-            mActiveViewId = inState.getInt(STATE_ACTIVE_VIEW_ID);
-        }
-
-        mMenuDrawer = new MenuDrawerManager(this, MenuDrawer.MENU_DRAG_WINDOW);
-        mMenuDrawer.setContentView(R.layout.main);
-        mMenuDrawer.setMenuView(R.layout.menu_scrollview);
-
-        MenuScrollView msv = (MenuScrollView) mMenuDrawer.getMenuView();
-        msv.setOnScrollChangedListener(new MenuScrollView.OnScrollChangedListener() {
-            @Override
-            public void onScrollChanged() {
-                mMenuDrawer.getMenuDrawer().invalidate();
-            }
-        });
+        setContentView(R.layout.main2);
+        
         
         searchLayout = (RelativeLayout)findViewById(R.id.searchLayout);
 
@@ -67,78 +48,26 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         findViewById(R.id.item5).setOnClickListener(this);
         findViewById(R.id.item6).setOnClickListener(this);
         findViewById(R.id.item7).setOnClickListener(this);
-        findViewById(R.id.item8).setOnClickListener(this);
 
-        
-        TextView activeView = (TextView) findViewById(mActiveViewId);
-        if (activeView != null) {
-            mMenuDrawer.setActiveView(activeView);
-            mContentTextView.setText(activeView.getText());
-            // TODO 替换Fragment
-        }else{
-        	Fragment welcome = new WelcomeFragment(this);
-        	getSupportFragmentManager()
-        	.beginTransaction()
-        	.replace(R.id.content_frame, welcome)
-        	.commit();
-        }
+		Fragment welcome = new WelcomeFragment(this);
+		getSupportFragmentManager()
+		.beginTransaction()
+		.replace(R.id.content_frame, welcome)
+		.commit();
         
         
 
         // This will animate the drawer open and closed until the user manually drags it. Usually this would only be
         // called on first launch.
-        mMenuDrawer.getMenuDrawer().peekDrawer();
-        mMenuDrawer.getMenuDrawer().setDropShadowEnabled(false);
     }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle inState) {
-        super.onRestoreInstanceState(inState);
-        mMenuDrawer.onRestoreDrawerState(inState.getParcelable(STATE_MENUDRAWER));
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(STATE_MENUDRAWER, mMenuDrawer.onSaveDrawerState());
-        outState.putInt(STATE_ACTIVE_VIEW_ID, mActiveViewId);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mMenuDrawer.toggleMenu();
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        final int drawerState = mMenuDrawer.getDrawerState();
-        if (drawerState == MenuDrawer.STATE_OPEN || drawerState == MenuDrawer.STATE_OPENING) {
-            mMenuDrawer.closeMenu();
-            return;
-        }
-
-        super.onBackPressed();
-    }
 
     @Override
     public void onClick(View v) {
-        mMenuDrawer.setActiveView(v);
         mContentTextView.setText(((TextView) v).getText());
 //        mMenuDrawer.closeMenu();
-        mActiveViewId = v.getId();
         Fragment newContent = null;
-        switch (mActiveViewId) {
-		case R.id.item8:
-			// 拟稿
-			setSearchVisibility(false);
-			newContent = new ColorFragment(R.color.white);
-			break;
+        switch (v.getId()) {
 		case R.id.item1:
 			// 待办公文
 			setSearchVisibility(false);
