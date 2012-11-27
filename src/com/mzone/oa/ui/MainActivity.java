@@ -105,7 +105,7 @@ public class MainActivity extends FragmentActivity implements
 			mContentTextView.setText(activeView.getText());
 			// TODO 替换Fragment
 		} else {
-			Fragment welcome = new WelcomeFragment(this);
+			Fragment welcome = new ToReadDocumentFragment(this);
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.content_frame, welcome).commit();
 		}
@@ -196,7 +196,7 @@ public class MainActivity extends FragmentActivity implements
 		case R.id.item6:
 			// 邮件系统
 			setSearchVisibility(false);
-			newContent = new ColorFragment(R.color.red);
+			newContent = new MeetingNotificationFragment();
 			break;
 		case R.id.item7:
 			// 信息刊物
