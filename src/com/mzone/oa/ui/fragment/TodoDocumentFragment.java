@@ -15,8 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.mzone.oa.bean.TodoDocumentBean;
 import com.mzone.oa.ui.MultiSelectActivity;
@@ -63,10 +65,10 @@ public class TodoDocumentFragment extends Fragment implements
 		map = new HashMap<String, String>();
 		map.put(mFrom[0], "信用社主任完成全年工作任务表态发言");
 		map.put(mFrom[1], "12-10-21 10:12:44");
-		map.put(mFrom[2], "总结发言");
+		map.put(mFrom[2], null);
 		mData.add(map);
 
-		mAdapter = new SimpleAdapter(context, mData,
+		mAdapter = new MySimpleAdapter(context, mData,
 				R.layout.tododocument_item, mFrom, mTo);
 		mListView.setAdapter(mAdapter);
 		mListView.setCacheColorHint(0);
@@ -90,8 +92,31 @@ public class TodoDocumentFragment extends Fragment implements
 	
 	public ArrayList<TodoDocumentBean> testData(){
 		TodoDocumentBean bean=new TodoDocumentBean();
-	
 		return null;
 	}
+	
+	 private class MySimpleAdapter extends SimpleAdapter{
+		
+		public MySimpleAdapter(Context context,
+				List<? extends Map<String, ?>> data, int resource,
+				String[] from, int[] to) {
+			super(context, data, resource, from, to);
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			convertView=super.getView(position, convertView, parent);
+			if(convertView!=null){
+				if(mData.get(position).get(mFrom[2])==null || mData.get(position).get(mFrom[2]).length()==0 ){
+					convertView.findViewById(R.id.rawcontentlayout).setVisibility(View.GONE);
+				}else{
+					convertView.findViewById(R.id.rawcontentlayout).setVisibility(View.VISIBLE);
+				}
+			}
+			return convertView;
+		}
+		
+	} 
 
 }
