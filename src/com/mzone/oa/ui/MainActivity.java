@@ -116,9 +116,6 @@ public class MainActivity extends FragmentActivity implements
 				.getParcelable(STATE_MENUDRAWER));
 	}
 
-
-
-
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -231,10 +228,11 @@ public class MainActivity extends FragmentActivity implements
 		if (EditDrafFragment.FILE_RESULT_CODE == requestCode) {
 			Bundle bundle = null;
 			if (data != null && (bundle = data.getExtras()) != null) {
-				Toast.makeText(this, bundle.getString("file"),
-						Toast.LENGTH_LONG).show();
+				((EditDrafFragment) getSupportFragmentManager()
+						.findFragmentById(R.id.content_frame))
+						.setAttachmentText(bundle.getString("fileName"));
 			}
-		} else if (MultiSelectActivity.CONTACT_RESULT_CODE == requestCode) {
+		} else  {
 			if (data != null) {
 				Bundle extras = data.getExtras();
 				if (extras != null && extras.getString("name") != null) {
@@ -242,8 +240,12 @@ public class MainActivity extends FragmentActivity implements
 							Toast.LENGTH_SHORT).show();
 				}
 			} else {
-				Toast.makeText(this, MultiSelectActivity.CALLBACK,
-						Toast.LENGTH_SHORT).show();
+//				Toast.makeText(this, MultiSelectActivity.CALLBACK,
+//						Toast.LENGTH_SHORT).show();
+				((EditDrafFragment) getSupportFragmentManager()
+						.findFragmentById(R.id.content_frame))
+						.setPersonText(MultiSelectActivity.CALLBACK.substring(
+								1, MultiSelectActivity.CALLBACK.length() - 1));
 			}
 		}
 
