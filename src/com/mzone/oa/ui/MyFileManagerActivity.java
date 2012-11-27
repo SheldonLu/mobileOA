@@ -38,8 +38,8 @@ public class MyFileManagerActivity extends ListActivity {
 		mPath = (TextView) findViewById(R.id.mPath);
 		mRootPath = getSDPath();
 		if (mRootPath == null) {
-			finish();
 			Toast.makeText(this, "请插入SD卡!", Toast.LENGTH_SHORT).show();
+			finish();
 		} else {
 			getFileDir(mRootPath);
 		}
