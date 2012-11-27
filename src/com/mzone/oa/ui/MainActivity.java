@@ -251,4 +251,9 @@ public class MainActivity extends FragmentActivity implements
 
 	}
 
+	@Override
+	public void onSucess() {
+		findViewById(R.id.item2).performClick();
+	}
+
 }
