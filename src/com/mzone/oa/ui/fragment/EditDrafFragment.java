@@ -3,18 +3,14 @@ package com.mzone.oa.ui.fragment;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.TimeUtils;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebView.FindListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -114,6 +110,8 @@ public class EditDrafFragment extends Fragment {
 					todo.filePath = mFilePath;
 				}
 				Util.docBeans.add(todo);
+				Toast.makeText(container.getContext(), "发布成功！", Toast.LENGTH_SHORT).show();
+				mCallBack.onSucess();
 			}
 		});
 		return view;
@@ -121,6 +119,7 @@ public class EditDrafFragment extends Fragment {
 
 	public interface CallBack {
 		void openFile();
+		void onSucess();
 	}
 	
 	public void setAttachmentText(String text, String filepath){
