@@ -15,8 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.mzone.oa.ui.fragment.AddressBookFragment;
 import com.mzone.oa.ui.fragment.ColorFragment;
+import com.mzone.oa.ui.fragment.EditDrafFragment;
 import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
 import com.mzone.oa.ui.fragment.NotificationPostFragment;
 import com.mzone.oa.ui.fragment.PublicationFragment;
@@ -115,6 +117,7 @@ public class MainActivity extends FragmentActivity implements
 				.getParcelable(STATE_MENUDRAWER));
 	}
 
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -146,18 +149,19 @@ public class MainActivity extends FragmentActivity implements
 		super.onBackPressed();
 	}
 
-	@Override
-	public void onClick(View v) {
-		mMenuDrawer.setActiveView(v);
-		mContentTextView.setText(((TextView) v).getText());
-		// mMenuDrawer.closeMenu();
-		mActiveViewId = v.getId();
-		Fragment newContent = null;
-		switch (mActiveViewId) {
+
+    @Override
+    public void onClick(View v) {
+        mMenuDrawer.setActiveView(v);
+        mContentTextView.setText(((TextView) v).getText());
+        mMenuDrawer.closeMenu();
+        mActiveViewId = v.getId();
+        Fragment newContent = null;
+        switch (mActiveViewId) {
 		case R.id.item8:
 			// 拟稿
 			setSearchVisibility(false);
-			newContent = new ColorFragment(R.color.white);
+			newContent = new EditDrafFragment();
 			break;
 		case R.id.item1:
 			// 待办公文

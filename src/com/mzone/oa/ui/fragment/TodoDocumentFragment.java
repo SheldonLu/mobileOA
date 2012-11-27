@@ -20,6 +20,7 @@ import android.widget.SimpleAdapter;
 
 import com.mzone.oa.ui.MultiSelectActivity;
 import com.mzone.oa.ui.R;
+import com.mzone.oa.ui.TodoDocumentDetailActivity;
 
 // 待办公文
 public class TodoDocumentFragment extends Fragment implements
@@ -67,6 +68,8 @@ public class TodoDocumentFragment extends Fragment implements
 		mAdapter = new SimpleAdapter(context, mData,
 				R.layout.tododocument_item, mFrom, mTo);
 		mListView.setAdapter(mAdapter);
+		mListView.setCacheColorHint(0);
+		mListView.setDividerHeight(0);
 		mListView.setOnItemClickListener(this);
 		return view;
 	}
@@ -74,8 +77,12 @@ public class TodoDocumentFragment extends Fragment implements
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view,
 			int position, long arg3) {
-		if (position < mData.size()) {
-		
+
+		if(position<mData.size()){
+			Intent intent = new Intent(context,TodoDocumentDetailActivity.class);
+			startActivity(intent);
+			getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right); 
+			
 		}
 	}
 
