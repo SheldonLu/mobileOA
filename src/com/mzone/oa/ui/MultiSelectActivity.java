@@ -66,7 +66,8 @@ public class MultiSelectActivity extends Activity implements
 			
 			@Override
 			public void onClick(View v) {
-				finish();
+				contactsDeleteAdapter.delContactsIdSet.clear();
+				onBackPressed();
 			}
 		});
 		mOk.setOnClickListener(new OnClickListener() {
