@@ -22,6 +22,7 @@ import com.mzone.oa.bean.TodoDocumentBean;
 import com.mzone.oa.ui.MultiSelectActivity;
 import com.mzone.oa.ui.R;
 import com.mzone.oa.ui.TodoDocumentDetailActivity;
+import com.mzone.oa.util.Util;
 
 // 待办公文
 public class TodoDocumentFragment extends Fragment implements
@@ -80,6 +81,9 @@ public class TodoDocumentFragment extends Fragment implements
 			int position, long arg3) {
 
 		if(position<mData.size()){
+			
+			Util.clickBean = Util.docBeans.get(position);
+			
 			Intent intent = new Intent(context,TodoDocumentDetailActivity.class);
 			startActivity(intent);
 			getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right); 
