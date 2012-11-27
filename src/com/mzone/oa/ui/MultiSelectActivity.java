@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -50,14 +51,17 @@ public class MultiSelectActivity extends Activity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
 		setContentView(R.layout.contact_list);
 		CALLBACK = "";
-		mPerson.add("张三");
-		mPerson.add("李四");
-		mPerson.add("王五");
-		mPerson.add("赵六");
-		mPerson.add("王朝");
-		mPerson.add("马汉");
+		mPerson.add("王进喜");
+		mPerson.add("李成龙");
+		mPerson.add("王建国");
+		mPerson.add("赵斌");
+		mPerson.add("王学斌");
+		mPerson.add("马应元");
 
 		
 		mBack=(ImageButton)findViewById(R.id.btn_back);

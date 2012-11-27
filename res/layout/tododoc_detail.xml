@@ -116,7 +116,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/txt_title"
+                        android:id="@+id/txt_content"
                         android:text="正文sdfdsf"
                         android:textColor="@color/gray"
                         android:layout_width="fill_parent"
@@ -178,7 +178,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/txt_title"
+                        android:id="@+id/txt_jinbanren"
                         android:text="经办人sdfdsf"
                         android:textColor="@color/gray"
                         android:layout_width="fill_parent"
