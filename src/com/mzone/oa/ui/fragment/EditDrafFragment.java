@@ -1,15 +1,20 @@
 package com.mzone.oa.ui.fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.mzone.oa.ui.MultiSelectActivity;
 import com.mzone.oa.ui.R;
 
 public class EditDrafFragment extends Fragment {
@@ -24,6 +29,8 @@ public class EditDrafFragment extends Fragment {
 		super();
 		this.mCallBack = mCallBack;
 	}
+
+	private EditText mPerson;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -46,6 +53,19 @@ public class EditDrafFragment extends Fragment {
 				mCallBack.openFile();
 			}
 		});
+
+		mPerson = (EditText) view.findViewById(R.id.txt_person);
+		mPerson.setFocusable(false);
+		mPerson.setFocusableInTouchMode(false);
+		mPerson.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivityForResult(new Intent(getActivity(),
+						MultiSelectActivity.class),
+						MultiSelectActivity.CONTACT_RESULT_CODE);
+			}
+		});
 		return view;
 	}
 
@@ -53,4 +73,7 @@ public class EditDrafFragment extends Fragment {
 		void openFile();
 	}
 
+	public void setPersonText(String str) {
+		mPerson.setText(str);
+	}
 }
