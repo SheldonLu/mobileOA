@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -51,6 +52,8 @@ public class MainActivity extends FragmentActivity implements
 	public void onCreate(Bundle inState) {
 		super.onCreate(inState);
 
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
 		DisplayMetrics dm = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		// 窗口的宽度
