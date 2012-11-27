@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:textColor="@color/color000"
-                android:textSize="16dp" />
+                android:textSize="16dp" android:singleLine="true" android:maxWidth="200dp" />
 
             <TextView
                 android:id="@+id/datetime_txt"
