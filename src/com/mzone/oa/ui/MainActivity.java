@@ -230,7 +230,7 @@ public class MainActivity extends FragmentActivity implements
 			if (data != null && (bundle = data.getExtras()) != null) {
 				((EditDrafFragment) getSupportFragmentManager()
 						.findFragmentById(R.id.content_frame))
-						.setAttachmentText(bundle.getString("fileName"));
+						.setAttachmentText(bundle.getString("fileName"),bundle.getString("filePath"));
 			}
 		} else  {
 			if (data != null) {

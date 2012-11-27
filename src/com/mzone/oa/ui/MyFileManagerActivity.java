@@ -126,7 +126,7 @@ public class MyFileManagerActivity extends ListActivity {
 		} else {
 			// 可以打开文件
 			Bundle bd = new Bundle();
-			bd.putString("file", file.getAbsolutePath());
+			bd.putString("filePath", file.getAbsolutePath());
 			bd.putString("fileName", file.getName());
 			Intent it = new Intent();
 			it.putExtras(bd);

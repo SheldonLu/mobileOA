@@ -71,7 +71,7 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/txt_title"
+                        android:id="@+id/txt_content"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/txt_content_label" />
@@ -154,7 +154,7 @@
                         android:layout_centerVertical="true"
                         android:paddingLeft="16dp"
                         android:text="附件"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
@@ -169,12 +169,13 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btn_publish"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/btn2_selector"
                 android:text="发布"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
