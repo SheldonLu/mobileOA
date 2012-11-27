@@ -29,7 +29,7 @@ import android.widget.Toast;
  */
 public class MultiSelectActivity extends Activity implements
 		OnItemClickListener {
-	
+	public static final int CONTACT_RESULT_CODE = 22;
 	public static String CALLBACK="";
 	
 	private static final String TAG = "MultiSelectActivity";

@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.mzone.oa.ui.fragment.AddressBookFragment;
 import com.mzone.oa.ui.fragment.ColorFragment;
 import com.mzone.oa.ui.fragment.EditDrafFragment;
@@ -27,7 +26,7 @@ import com.mzone.oa.ui.fragment.TodoDocumentFragment;
 import com.mzone.oa.ui.fragment.WelcomeFragment;
 
 public class MainActivity extends FragmentActivity implements
-		View.OnClickListener {
+		View.OnClickListener, EditDrafFragment.CallBack {
 
 	private static final String STATE_MENUDRAWER = "com.mzone.oa.ui.MainActivity.menuDrawer";
 	private static final String STATE_ACTIVE_VIEW_ID = "com.mzone.oa.ui.MainActivity.activeViewId";
@@ -118,6 +117,8 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 
+
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -149,19 +150,18 @@ public class MainActivity extends FragmentActivity implements
 		super.onBackPressed();
 	}
 
-
-    @Override
-    public void onClick(View v) {
-        mMenuDrawer.setActiveView(v);
-        mContentTextView.setText(((TextView) v).getText());
-        mMenuDrawer.closeMenu();
-        mActiveViewId = v.getId();
-        Fragment newContent = null;
-        switch (mActiveViewId) {
+	@Override
+	public void onClick(View v) {
+		mMenuDrawer.setActiveView(v);
+		mContentTextView.setText(((TextView) v).getText());
+		mMenuDrawer.closeMenu();
+		mActiveViewId = v.getId();
+		Fragment newContent = null;
+		switch (mActiveViewId) {
 		case R.id.item8:
 			// 拟稿
 			setSearchVisibility(false);
-			newContent = new EditDrafFragment();
+			newContent = new EditDrafFragment(this);
 			break;
 		case R.id.item1:
 			// 待办公文
@@ -220,21 +220,33 @@ public class MainActivity extends FragmentActivity implements
 		searchLayout.setVisibility(show ? View.VISIBLE : View.GONE);
 	}
 
-	@Override
-	// 当结果返回后判断并执行操作
-	protected void onActivityResult(int requestCode, int resultCode,
-			Intent intent) {
-		super.onActivityResult(requestCode, resultCode, intent);
-		if(intent!=null){
-			Bundle extras = intent.getExtras();
-			if (extras != null && extras.getString("name")!=null) {
-				Toast.makeText(this,extras.getString("name"), Toast.LENGTH_SHORT)
-						.show();
-			}
-		}else{
-			Toast.makeText(this, MultiSelectActivity.CALLBACK, Toast.LENGTH_SHORT)
-			.show();
-		}
-	
+	public void openFile() {
+		Intent intent = new Intent(MainActivity.this,
+				MyFileManagerActivity.class);
+		startActivityForResult(intent, EditDrafFragment.FILE_RESULT_CODE);
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (EditDrafFragment.FILE_RESULT_CODE == requestCode) {
+			Bundle bundle = null;
+			if (data != null && (bundle = data.getExtras()) != null) {
+				Toast.makeText(this, bundle.getString("file"),
+						Toast.LENGTH_LONG).show();
+			}
+		} else if (MultiSelectActivity.CONTACT_RESULT_CODE == requestCode) {
+			if (data != null) {
+				Bundle extras = data.getExtras();
+				if (extras != null && extras.getString("name") != null) {
+					Toast.makeText(this, extras.getString("name"),
+							Toast.LENGTH_SHORT).show();
+				}
+			} else {
+				Toast.makeText(this, MultiSelectActivity.CALLBACK,
+						Toast.LENGTH_SHORT).show();
+			}
+		}
+
+	}
+
 }
