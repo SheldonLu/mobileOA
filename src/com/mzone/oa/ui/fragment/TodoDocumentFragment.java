@@ -18,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.mzone.oa.bean.TodoDocumentBean;
 import com.mzone.oa.ui.MultiSelectActivity;
 import com.mzone.oa.ui.R;
 import com.mzone.oa.ui.TodoDocumentDetailActivity;
@@ -50,19 +51,19 @@ public class TodoDocumentFragment extends Fragment implements
 		mData = new ArrayList<Map<String, String>>();
 		Map<String, String> map = new HashMap<String, String>();
 
-		map.put(mFrom[0], "关于申报意见");
-		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "同意");
+		map.put(mFrom[0], "政协换届以来工作总结");
+		map.put(mFrom[1], "12-10-21 10:12:44");
+		map.put(mFrom[2], "已阅");
 		mData.add(map);
 		map = new HashMap<String, String>();
-		map.put(mFrom[0], "关于申报意见");
-		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "同意");
+		map.put(mFrom[0], "在党校学习贯彻十八大精神会议上的讲话");
+		map.put(mFrom[1], "12-10-22 11:13:41");
+		map.put(mFrom[2], "组织学习");
 		mData.add(map);
 		map = new HashMap<String, String>();
-		map.put(mFrom[0], "关于申报意见");
-		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意");
+		map.put(mFrom[0], "信用社主任完成全年工作任务表态发言");
+		map.put(mFrom[1], "12-10-21 10:12:44");
+		map.put(mFrom[2], "总结发言");
 		mData.add(map);
 
 		mAdapter = new SimpleAdapter(context, mData,
@@ -84,6 +85,13 @@ public class TodoDocumentFragment extends Fragment implements
 			getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right); 
 			
 		}
+	}
+	
+	
+	public ArrayList<TodoDocumentBean> testData(){
+		TodoDocumentBean bean=new TodoDocumentBean();
+	
+		return null;
 	}
 
 }

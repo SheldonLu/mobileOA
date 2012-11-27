@@ -42,19 +42,19 @@ public class ToReadDocumentFragment extends Fragment {
 		mData = new ArrayList<Map<String, String>>();
 		Map<String, String> map = new HashMap<String, String>();
 
-		map.put(mFrom[0], "关于申报意见");
+		map.put(mFrom[0], "关于网点标准化改造工作进展情况的汇报");
 		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "同意");
+		map.put(mFrom[2], "阅");
 		mData.add(map);
 		map = new HashMap<String, String>();
-		map.put(mFrom[0], "关于申报意见");
+		map.put(mFrom[0], "在全县信用社旺季工作大会上的讲话");
 		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "同意");
+		map.put(mFrom[2], "阅");
 		mData.add(map);
 		map = new HashMap<String, String>();
-		map.put(mFrom[0], "关于申报意见");
+		map.put(mFrom[0], "钢铁企业劳务外包存在的问题及解决对策");
 		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意同意");
+		map.put(mFrom[2], "阅");
 		mData.add(map);
 
 		mAdapter = new SimpleAdapter(context, mData,
