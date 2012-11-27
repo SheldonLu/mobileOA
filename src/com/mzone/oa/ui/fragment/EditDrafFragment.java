@@ -52,5 +52,9 @@ public class EditDrafFragment extends Fragment {
 	public interface CallBack {
 		void openFile();
 	}
+	
+	public void setAttachmentText(String text){
+		mAttachmentBtn.setText(text);
+	}
 
 }
