@@ -46,8 +46,13 @@
         android:layout_marginTop="48dip"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
+        
+	<RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/topLinearLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -200,7 +205,7 @@
                         android:layout_centerVertical="true"
                         android:paddingLeft="16dp"
                         android:text="附件"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
@@ -209,20 +214,49 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/txt_attachment_label"
                         android:background="@drawable/btn1_selector"
-                        android:text="选择附件"
+                        android:text="查看附件"
                         android:textSize="14sp" />
                 </RelativeLayout>
             </LinearLayout>
 
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/btn2_selector"
-                android:text="发布"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            
         </LinearLayout>
+        
+        	<RelativeLayout 
+       	android:layout_below="@id/topLinearLayout"
+	    android:layout_alignParentBottom="true"
+	    android:paddingTop="50dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:id="@+id/txt_fb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn2_selector"
+            android:text="发表"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        
+         <EditText
+            android:layout_alignParentLeft="true"
+            android:id="@+id/txt_yj"
+            android:layout_toLeftOf="@id/txt_fb"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:hint="请在这里填写审批意见"
+            android:layout_height="wrap_content"/>
+            
+        </RelativeLayout>
+        
+        
+        </RelativeLayout>
     </ScrollView>
+    
+
 
 </RelativeLayout>
