@@ -2,19 +2,18 @@ package com.mzone.oa.ui;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
 import android.app.Activity;
-import android.content.res.Resources.NotFoundException;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class NewTodoDocumentDetailActivity extends Activity {
 
@@ -24,8 +23,11 @@ public class NewTodoDocumentDetailActivity extends Activity {
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.newtododoc_detail);
-		Button attan = (Button) findViewById(R.id.btn_attachment);
-
+		TextView attan = (TextView) findViewById(R.id.btn_attachment);
+		// attan.setText(Html.fromHtml("<u>富阳市人民政府关于富阳市农村村民建房管理的若干意见.docx</u>"));
+		attan.setText("富阳市人民政府关于富阳市农村村民建房管理的若干意见.docx");
+		attan.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); // 下划线
+		attan.getPaint().setAntiAlias(true);// 抗锯齿
 		attan.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -34,7 +36,8 @@ public class NewTodoDocumentDetailActivity extends Activity {
 				if (sdCardExist) {
 					File dir = Environment.getExternalStorageDirectory();
 					String path = dir.getAbsolutePath();
-					File file = new File(path + "/富阳市人民政府关于富阳市农村村民建房管理的若干意见.docx");
+					File file = new File(path
+							+ "/富阳市人民政府关于富阳市农村村民建房管理的若干意见.docx");
 					try {
 						if (!file.exists()) {
 							file.createNewFile();
@@ -42,7 +45,8 @@ public class NewTodoDocumentDetailActivity extends Activity {
 									getResources().openRawResource(R.raw.test),
 									file);
 						}
-						MyFileManagerActivity.openFile(NewTodoDocumentDetailActivity.this, file);
+						MyFileManagerActivity.openFile(
+								NewTodoDocumentDetailActivity.this, file);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -51,15 +55,16 @@ public class NewTodoDocumentDetailActivity extends Activity {
 				}
 			}
 		});
-		
-		((ImageButton)findViewById(R.id.btn_back)).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-			
-				finish();
-			}
-		});
-		
+
+		((ImageButton) findViewById(R.id.btn_back))
+				.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+
+						finish();
+					}
+				});
+
 	}
 
 	public void inputstreamtofile(InputStream ins, File file) throws Exception {

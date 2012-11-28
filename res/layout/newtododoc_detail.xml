@@ -553,14 +553,16 @@
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
-                        <Button
+                      
+                        
+                          <TextView
                             android:id="@+id/btn_attachment"
-                            android:layout_width="wrap_content"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_attachment_label"
-                            android:background="@drawable/btn1_selector"
-                            android:text="查看附件" />
+                            android:text=""
+                            android:textSize="14sp" />
                     </RelativeLayout>
 
                     <View
