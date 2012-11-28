@@ -53,10 +53,9 @@ public class MainActivity extends FragmentActivity implements
 		tb.suggess = "徐林完成<部门核稿>,意见：已同意。";
 		tb.dengji = "等级1";
 		tb.desc = "今年以来，按照县委县政府的总体部署和县政协常委会工作要点安排，县政协认真履行工作";
-		tb.jinbanren = "陈国华";
+		tb.jinbanren = "徐林 ";
 		
 		docBeans.add(tb);
-		
 	}
 
 	private static final String STATE_MENUDRAWER = "com.mzone.oa.ui.MainActivity.menuDrawer";

@@ -73,28 +73,77 @@
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:paddingBottom="8dp"
-                        android:paddingTop="8dp" >
+                        android:gravity="center_vertical" >
 
                         <TextView
                             android:id="@+id/txt_content_label"
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
+                            android:layout_marginTop="5dp"
                             android:paddingLeft="16dp"
-                            android:text="文件名称 "
+                            android:text="富阳市人民政府联合发文发文稿 "
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_title"
-                            android:layout_width="fill_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/txt_content_label"
                             android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/txt_content_label"
-                            android:text="富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）" />
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="2012年11月06日"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txt_content_label"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toLeftOf="@+id/txt_title"
+                            android:text="日期："
+                            android:textColor="@color/gray"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                        <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="#f0f0f8" />
+ <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp" >
+                
+
+                    <TextView
+                        android:id="@+id/txt_content_label"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="16dp"
+                        android:text="文件名称 "
+                        android:textColor="@color/gray"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txt_title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/txt_content_label"
+                        android:text="富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）" />
+
                     </RelativeLayout>
 
                     <View
@@ -117,7 +166,7 @@
                             android:paddingLeft="16dp"
                             android:text="主      送 "
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -149,7 +198,7 @@
                             android:paddingLeft="16dp"
                             android:text="抄      送"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -181,7 +230,7 @@
                             android:paddingLeft="16dp"
                             android:text="主办单位"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -213,7 +262,7 @@
                             android:paddingLeft="16dp"
                             android:text="拟稿人"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -244,7 +293,7 @@
                             android:paddingLeft="16dp"
                             android:text="主办单位意 见"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -275,7 +324,7 @@
                             android:paddingLeft="16dp"
                             android:text="会办单位意 见  "
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -306,7 +355,7 @@
                             android:paddingLeft="16dp"
                             android:text="审核意见  "
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -337,7 +386,7 @@
                             android:paddingLeft="16dp"
                             android:text="领导批示  "
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -368,7 +417,7 @@
                             android:paddingLeft="16dp"
                             android:text="紧急程度  "
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <Spinner
@@ -393,7 +442,7 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text=""
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold"
                             android:visibility="invisible" />
 
@@ -425,7 +474,7 @@
                             android:paddingLeft="16dp"
                             android:text="编号"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -456,7 +505,7 @@
                             android:paddingLeft="16dp"
                             android:text="上外网"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -487,7 +536,7 @@
                             android:paddingLeft="16dp"
                             android:text="打字"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -518,7 +567,7 @@
                             android:paddingLeft="16dp"
                             android:text="校对"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -550,12 +599,10 @@
                             android:paddingLeft="16dp"
                             android:text="附件"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
-                      
-                        
-                          <TextView
+                        <TextView
                             android:id="@+id/btn_attachment"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -584,7 +631,7 @@
                             android:paddingLeft="16dp"
                             android:text="发放范围"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -616,7 +663,7 @@
                             android:paddingLeft="16dp"
                             android:text="说明"
                             android:textColor="@color/gray"
-                            android:textSize="16sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -648,7 +695,7 @@
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/btn2_selector"
                         android:text="发表"
-                        android:textSize="16sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <EditText
