@@ -10,20 +10,19 @@ import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mzone.oa.ui.fragment.AddressBookFragment;
-import com.mzone.oa.ui.fragment.ColorFragment;
 import com.mzone.oa.ui.fragment.EditDrafFragment;
 import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
 import com.mzone.oa.ui.fragment.NotificationPostFragment;
 import com.mzone.oa.ui.fragment.PublicationFragment;
 import com.mzone.oa.ui.fragment.ToReadDocumentFragment;
 import com.mzone.oa.ui.fragment.TodoDocumentFragment;
-import com.mzone.oa.ui.fragment.WelcomeFragment;
 import com.mzone.oa.util.Util;
 
 public class MainActivity extends FragmentActivity implements
@@ -50,6 +49,8 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public void onCreate(Bundle inState) {
 		super.onCreate(inState);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		DisplayMetrics dm = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -105,7 +106,7 @@ public class MainActivity extends FragmentActivity implements
 			mContentTextView.setText(activeView.getText());
 			// TODO 替换Fragment
 		} else {
-			Fragment welcome = new WelcomeFragment(this);
+			Fragment welcome = new ToReadDocumentFragment(this);
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.content_frame, welcome).commit();
 		}
@@ -196,7 +197,7 @@ public class MainActivity extends FragmentActivity implements
 		case R.id.item6:
 			// 邮件系统
 			setSearchVisibility(false);
-			newContent = new ColorFragment(R.color.red);
+			newContent = new MeetingNotificationFragment();
 			break;
 		case R.id.item7:
 			// 信息刊物
