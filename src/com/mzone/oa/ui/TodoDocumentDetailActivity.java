@@ -31,7 +31,7 @@ public class TodoDocumentDetailActivity extends Activity {
 			}
 		});
 		
-		final TodoDocumentBean tb = Util.clickBean;
+		final TodoDocumentBean tb = MainActivity.clickBean;
 		
 		((TextView)findViewById(R.id.txt_title)).setText(tb.title);
 		((TextView)findViewById(R.id.txt_content)).setText(tb.desc);
@@ -45,7 +45,7 @@ public class TodoDocumentDetailActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				String yj = et.getText().toString();
-				Util.clickBean.suggess = yj;
+				MainActivity.clickBean.suggess = yj;
 				finish();
 			}
 		});

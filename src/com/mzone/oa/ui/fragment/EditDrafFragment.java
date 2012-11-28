@@ -18,9 +18,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.mzone.oa.bean.TodoDocumentBean;
+import com.mzone.oa.ui.MainActivity;
 import com.mzone.oa.ui.MultiSelectActivity;
 import com.mzone.oa.ui.R;
-import com.mzone.oa.util.Util;
 
 public class EditDrafFragment extends Fragment {
 
@@ -109,7 +109,7 @@ public class EditDrafFragment extends Fragment {
 					todo.fileName = attachment;
 					todo.filePath = mFilePath;
 				}
-				Util.docBeans.add(todo);
+				MainActivity.docBeans.add(todo);
 				Toast.makeText(container.getContext(), "发布成功！", Toast.LENGTH_SHORT).show();
 				mCallBack.onSucess();
 			}

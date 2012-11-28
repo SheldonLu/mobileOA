@@ -37,6 +37,8 @@ public class ToReadDocumentFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tododocument, null);
 		mListView = (ListView) view.findViewById(R.id.listview);
+		mListView.setDividerHeight(0);
+		mListView.setCacheColorHint(0);
 		mTo = new int[] { R.id.title_txt, R.id.datetime_txt, R.id.content_txt };
 		mFrom = new String[] { "title_txt", "datetime_txt", "content_txt" };
 		mData = new ArrayList<Map<String, String>>();
