@@ -1,5 +1,7 @@
 package com.mzone.oa.ui;
 
+import java.util.ArrayList;
+
 import net.simonvt.widget.MenuDrawer;
 import net.simonvt.widget.MenuDrawerManager;
 import android.content.Intent;
@@ -16,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mzone.oa.bean.TodoDocumentBean;
 import com.mzone.oa.ui.fragment.AddressBookFragment;
 import com.mzone.oa.ui.fragment.EditDrafFragment;
 import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
@@ -23,10 +26,36 @@ import com.mzone.oa.ui.fragment.NotificationPostFragment;
 import com.mzone.oa.ui.fragment.PublicationFragment;
 import com.mzone.oa.ui.fragment.ToReadDocumentFragment;
 import com.mzone.oa.ui.fragment.TodoDocumentFragment;
-import com.mzone.oa.util.Util;
 
 public class MainActivity extends FragmentActivity implements
 		View.OnClickListener, EditDrafFragment.CallBack {
+	
+	public static ArrayList<TodoDocumentBean> docBeans;
+
+	public static TodoDocumentBean clickBean;
+
+	static{
+		docBeans = new ArrayList<TodoDocumentBean>();
+		TodoDocumentBean tb = new TodoDocumentBean();
+		tb.title = "政协换届以来工作总结";
+		tb.time = "12-10-21 10:12:44";
+		tb.suggess = "已阅";
+		tb.dengji = "等级1";
+		tb.desc = "今年以来，按照县委县政府的总体部署和县政协常委会工作要点安排，县政协认真履行工作";
+		tb.jinbanren = "陈国华";
+		
+		docBeans.add(tb);
+		
+		tb = new TodoDocumentBean();
+		tb.title = "在党校学习贯彻十八大精神会议上的讲话";
+		tb.time = "12-10-22 11:12:44";
+		tb.suggess = "通过";
+		tb.dengji = "等级2";
+		tb.desc = "镇原县委党校学习贯彻党的十八大精神专题研讨会召开，6位教学骨干围绕精心准备的讲稿，先后发言";
+		tb.jinbanren = "李建国";
+		
+		docBeans.add(tb);
+	}
 
 	private static final String STATE_MENUDRAWER = "com.mzone.oa.ui.MainActivity.menuDrawer";
 	private static final String STATE_ACTIVE_VIEW_ID = "com.mzone.oa.ui.MainActivity.activeViewId";
@@ -39,13 +68,6 @@ public class MainActivity extends FragmentActivity implements
 	private int screenWidth;
 	private RelativeLayout searchLayout;
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		Util.clickBean = null;
-		Util.docBeans = null;
-	}
-	
 	@Override
 	public void onCreate(Bundle inState) {
 		super.onCreate(inState);
@@ -105,10 +127,6 @@ public class MainActivity extends FragmentActivity implements
 			mMenuDrawer.setActiveView(activeView);
 			mContentTextView.setText(activeView.getText());
 			// TODO 替换Fragment
-		} else {
-			Fragment welcome = new ToReadDocumentFragment(this);
-			getSupportFragmentManager().beginTransaction()
-					.replace(R.id.content_frame, welcome).commit();
 		}
 
 		// This will animate the drawer open and closed until the user manually
@@ -116,6 +134,7 @@ public class MainActivity extends FragmentActivity implements
 		// called on first launch.
 		mMenuDrawer.getMenuDrawer().peekDrawer();
 		mMenuDrawer.getMenuDrawer().setDropShadowEnabled(false);
+		findViewById(R.id.item1).performClick();
 	}
 
 	@Override

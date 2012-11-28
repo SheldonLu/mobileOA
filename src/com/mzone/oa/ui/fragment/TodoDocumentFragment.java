@@ -21,6 +21,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.mzone.oa.bean.TodoDocumentBean;
+import com.mzone.oa.ui.MainActivity;
 import com.mzone.oa.ui.MultiSelectActivity;
 import com.mzone.oa.ui.R;
 import com.mzone.oa.ui.TodoDocumentDetailActivity;
@@ -51,10 +52,11 @@ public class TodoDocumentFragment extends Fragment implements
 		
 		mData.clear();
 		Map<String, String> map = null;
-		int length = Util.docBeans.size();
+		if(MainActivity.docBeans == null) return;
+		int length = MainActivity.docBeans.size();
 		for(int i = 0;i<length;i++){
 			map = new HashMap<String, String>();
-			TodoDocumentBean tb = Util.docBeans.get(i);
+			TodoDocumentBean tb = MainActivity.docBeans.get(i);
 			map.put(mFrom[0], tb.title);
 			map.put(mFrom[1], tb.time);
 			map.put(mFrom[2], tb.suggess);
@@ -104,7 +106,7 @@ public class TodoDocumentFragment extends Fragment implements
 
 		if(position<mData.size()){
 			
-			Util.clickBean = Util.docBeans.get(position);
+			MainActivity.clickBean = MainActivity.docBeans.get(position);
 			
 			Intent intent = new Intent(context,TodoDocumentDetailActivity.class);
 			startActivity(intent);

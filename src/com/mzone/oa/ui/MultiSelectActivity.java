@@ -82,6 +82,8 @@ public class MultiSelectActivity extends Activity implements
 			}
 		});
 		contactsDelList = (ListView) findViewById(R.id.listview);
+		contactsDelList.setCacheColorHint(0);
+		contactsDelList.setDividerHeight(0);
 
 		contactsDelList.setOnItemClickListener(this);
 	}
