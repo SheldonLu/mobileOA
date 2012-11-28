@@ -37,6 +37,7 @@ public class TodoDocumentDetailActivity extends Activity {
 		((TextView)findViewById(R.id.txt_content)).setText(tb.desc);
 		((TextView)findViewById(R.id.spinner_level)).setText(tb.dengji);
 		((TextView)findViewById(R.id.txt_jinbanren)).setText(tb.jinbanren);
+		((TextView)findViewById(R.id.txt_suggess)).setText(tb.suggess);
 		
 		final EditText et = (EditText)findViewById(R.id.txt_yj);
 		
