@@ -78,23 +78,23 @@
                         android:paddingTop="8dp" >
 
                         <TextView
-                            android:id="@+id/txt_title_label"
+                            android:id="@+id/txt_content_label"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
-                            android:text="文件名称"
+                            android:text="文件名称 "
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" 
-                            android:textColor="@color/gray" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_title"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/txt_title_label"
-                            android:text="富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）"
-                             />
+                            android:layout_toRightOf="@id/txt_content_label"
+                            android:text="富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）" />
                     </RelativeLayout>
 
                     <View
@@ -116,8 +116,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="主      送 "
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_content"
@@ -125,8 +126,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_content_label"
-                            android:text="各乡镇人民政府，各街道办事处，市政府各部门、各直属单位"
-                            />
+                            android:text="各乡镇人民政府，各街道办事处，市政府各部门、各直属单位" />
                     </RelativeLayout>
 
                     <View
@@ -148,8 +148,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="抄      送"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/spinner_level"
@@ -157,8 +158,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_level_label"
-                            android:text="市委各部门，市纪委，市人大常委会办公室,市政协办公室，市人武部，市法院，市检察院，市各群众团体，市各民主党派。"
-                             />
+                            android:text="市委各部门，市纪委，市人大常委会办公室,市政协办公室，市人武部，市法院，市检察院，市各群众团体，市各民主党派。" />
                     </RelativeLayout>
 
                     <View
@@ -180,8 +180,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="主办单位"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_jinbanren"
@@ -189,8 +190,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text="市府办"
-                            />
+                            android:text="市府办" />
                     </RelativeLayout>
 
                     <View
@@ -212,17 +212,17 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="拟稿人"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold"  android:textColor="@color/gray"/>
-					    <TextView
+                            android:textStyle="bold" />
+
+                        <TextView
                             android:id="@+id/txt_suggess"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text="请会签！  徐林  2012年11月28日10时32分"
-                            />
-                    
+                            android:text="请会签！  徐林  2012年11月28日10时32分" />
                     </RelativeLayout>
 
                     <View
@@ -243,8 +243,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="主办单位意 见"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -252,11 +253,9 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text="请会签！  徐林  2012年11月28日10时32分"
-                             />
+                            android:text="请会签！  徐林  2012年11月28日10时32分" />
                     </RelativeLayout>
-                    
-                    
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
@@ -275,8 +274,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="会办单位意 见  "
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -284,14 +284,14 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text="同意！  徐翼麟  2012年11月28日10时34分"
-                          />
+                            android:text="同意！  徐翼麟  2012年11月28日10时34分" />
                     </RelativeLayout>
-                    
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -305,8 +305,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="审核意见  "
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold"   android:textColor="@color/gray" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -314,18 +315,14 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text=""
-                            />
+                            android:text="" />
                     </RelativeLayout>
-                    
-                    
-                    
-                    
-                    
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -339,8 +336,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="领导批示  "
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold"  android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -348,15 +346,14 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text=""
-                           />
+                            android:text="" />
                     </RelativeLayout>
-                    
-                    
-                        <View
+
+                    <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -370,8 +367,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="紧急程度  "
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold"  android:textColor="@color/gray" />
+                            android:textStyle="bold" />
 
                         <Spinner
                             android:id="@+id/txt_suggess"
@@ -379,11 +377,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:entries="@array/warning"
-                           />
+                            android:entries="@array/warning" />
                     </RelativeLayout>
-                    
-             
 
                     <RelativeLayout
                         android:layout_width="fill_parent"
@@ -399,7 +394,8 @@
                             android:paddingLeft="16dp"
                             android:text=""
                             android:textSize="16sp"
-                            android:textStyle="bold" android:visibility="invisible"/>
+                            android:textStyle="bold"
+                            android:visibility="invisible" />
 
                         <Spinner
                             android:id="@+id/txt_suggess"
@@ -407,13 +403,14 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:entries="@array/orgarray"
-                             />
+                            android:entries="@array/orgarray" />
                     </RelativeLayout>
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -427,8 +424,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="编号"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -436,16 +434,14 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text="【2012】 79 号     工印100份"
-                             />
-                        
-                        
+                            android:text="【2012】 79 号     工印100份" />
                     </RelativeLayout>
-                    
-                     <View
+
+                    <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -459,8 +455,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="上外网"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -468,14 +465,14 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text=""
-                          />
-                        
-                     </RelativeLayout>
-                        <View
+                            android:text="" />
+                    </RelativeLayout>
+
+                    <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -489,8 +486,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="打字"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold"   android:textColor="@color/gray" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -498,15 +496,14 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text=""
-                           />
-                        
-                     </RelativeLayout>
-                     
-                       <View
+                            android:text="" />
+                    </RelativeLayout>
+
+                    <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -520,9 +517,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="校对"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" 
-                            android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -530,10 +527,9 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text=""
-                            />
-                        
-                     </RelativeLayout>
+                            android:text="" />
+                    </RelativeLayout>
+
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
@@ -553,8 +549,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="附件"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold"  android:textColor="@color/gray" />
+                            android:textStyle="bold" />
 
                         <Button
                             android:id="@+id/btn_attachment"
@@ -563,15 +560,14 @@
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_attachment_label"
                             android:background="@drawable/btn1_selector"
-                            android:text="查看附件"
-                             />
+                            android:text="查看附件" />
                     </RelativeLayout>
-                    
-                    
-                      <View
+
+                    <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -585,8 +581,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="发放范围"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold" android:textColor="@color/gray"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -594,15 +591,15 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text=""  android:textSize="14sp"
-                            />
-                        
-                     </RelativeLayout>
-                     
-                      <View
+                            android:text=""
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -616,8 +613,9 @@
                             android:layout_centerVertical="true"
                             android:paddingLeft="16dp"
                             android:text="说明"
+                            android:textColor="@color/gray"
                             android:textSize="16sp"
-                            android:textStyle="bold"  android:textColor="@color/gray" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_suggess"
@@ -625,10 +623,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/txt_person_label"
-                            android:text=""
-                           />
-                        
-                     </RelativeLayout>
+                            android:text="" />
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <RelativeLayout
