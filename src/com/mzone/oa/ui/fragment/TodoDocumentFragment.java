@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.mzone.oa.bean.TodoDocumentBean;
 import com.mzone.oa.ui.MainActivity;
 import com.mzone.oa.ui.MultiSelectActivity;
+import com.mzone.oa.ui.NewTodoDocumentDetailActivity;
 import com.mzone.oa.ui.R;
 import com.mzone.oa.ui.TodoDocumentDetailActivity;
 import com.mzone.oa.util.Util;
@@ -108,7 +109,7 @@ public class TodoDocumentFragment extends Fragment implements
 			
 			MainActivity.clickBean = MainActivity.docBeans.get(position);
 			
-			Intent intent = new Intent(context,TodoDocumentDetailActivity.class);
+			Intent intent = new Intent(context,NewTodoDocumentDetailActivity.class);
 			startActivity(intent);
 			getActivity().overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right); 
 			

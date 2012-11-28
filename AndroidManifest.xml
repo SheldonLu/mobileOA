@@ -40,6 +40,11 @@
             android:name=".MyFileManagerActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewTodoDocumentDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        
     </application>
 
 </manifest>

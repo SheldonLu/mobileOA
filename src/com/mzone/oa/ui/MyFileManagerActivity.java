@@ -82,6 +82,12 @@ public class MyFileManagerActivity extends ListActivity {
 			type = "*";
 		}
 		type += "/*";
+		
+		if(end.equals("doc")){
+			type="application/msword";
+		}else if(end.equals("docx")){
+			type="application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+		}
 		return type;
 	}
 
