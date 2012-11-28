@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class NewTodoDocumentDetailActivity extends Activity {
 
@@ -51,7 +52,7 @@ public class NewTodoDocumentDetailActivity extends Activity {
 			}
 		});
 		
-		((Button)findViewById(R.id.txt_fb)).setOnClickListener(new OnClickListener() {
+		((ImageButton)findViewById(R.id.btn_back)).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 			
