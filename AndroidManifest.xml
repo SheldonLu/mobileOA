@@ -33,11 +33,15 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".TodoDocumentDetailActivity"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" 
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name=".MyFileManagerActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MyFileManagerActivity"
+            android:name=".EmailDetailActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
     </application>

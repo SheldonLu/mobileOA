@@ -2,108 +2,116 @@
 <com.mzone.oa.ui.MenuScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-  	<RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dip"
-        android:background="@drawable/bg_title" >
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:background="@drawable/bg_title" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="OA系统"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+        </RelativeLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="OA系统"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-       
-        </RelativeLayout>
-        
-	<TextView
             android:id="@+id/item8"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_ng"
-            android:text="拟稿"
-            style="@style/MenuDrawer.Widget.Title" />
-        
-	<TextView
+            android:text="拟稿" />
+
+        <TextView
+            style="@style/MenuDrawer.Widget.Category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="公文"
-            style="@style/MenuDrawer.Widget.Category" />
+            android:text="公文" />
 
         <TextView
             android:id="@+id/item1"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_dbgw"
-            android:text="待办公文"
-            style="@style/MenuDrawer.Widget.Title" />
+            android:text="待办公文" />
 
         <TextView
             android:id="@+id/item2"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_dygw"
-            android:text="待阅公文"
-            style="@style/MenuDrawer.Widget.Title" />
+            android:text="待阅公文" />
 
         <TextView
+            style="@style/MenuDrawer.Widget.Category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="通知"
-            style="@style/MenuDrawer.Widget.Category" />
+            android:text="通知" />
 
         <TextView
             android:id="@+id/item3"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_hytz"
-            android:text="会议通知"
-            style="@style/MenuDrawer.Widget.Title" />
+            android:text="会议通知" />
 
         <TextView
             android:id="@+id/item4"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_tzgg"
-            android:text="通知公告"
-            style="@style/MenuDrawer.Widget.Title" />
+            android:text="通知公告" />
 
         <TextView
+            style="@style/MenuDrawer.Widget.Category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="信息"
-            style="@style/MenuDrawer.Widget.Category" />
+            android:text="信息" />
 
         <TextView
             android:id="@+id/item5"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_qstxl"
-            android:text="全市通讯录"
-            style="@style/MenuDrawer.Widget.Title" />
+            android:text="全市通讯录" />
 
         <TextView
             android:id="@+id/item6"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_email"
-            android:text="邮件系统"
-            style="@style/MenuDrawer.Widget.Title" />
-        
-		<TextView
+            android:text="邮件系统" />
+
+        <TextView
             android:id="@+id/item7"
+            style="@style/MenuDrawer.Widget.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_xxkw"
-            android:text="信息刊物"
-            style="@style/MenuDrawer.Widget.Title" />
+            android:text="信息刊物" />
 
+        <TextView
+            android:id="@+id/item9"
+            style="@style/MenuDrawer.Widget.Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_xxkw"
+            android:text="公文查询" />
     </LinearLayout>
+
 </com.mzone.oa.ui.MenuScrollView>

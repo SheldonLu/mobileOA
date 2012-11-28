@@ -17,13 +17,8 @@ import android.widget.SimpleAdapter;
 import com.mzone.oa.ui.R;
 //待阅公文
 public class ToReadDocumentFragment extends Fragment {
-	private Context context;
 
 	public ToReadDocumentFragment() {
-	}
-
-	public ToReadDocumentFragment(Context context) {
-		this.context = context;
 	}
 
 	private ListView mListView;
@@ -44,22 +39,22 @@ public class ToReadDocumentFragment extends Fragment {
 		mData = new ArrayList<Map<String, String>>();
 		Map<String, String> map = new HashMap<String, String>();
 
-		map.put(mFrom[0], "关于网点标准化改造工作进展情况的汇报");
-		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "");
-		mData.add(map);
-		map = new HashMap<String, String>();
-		map.put(mFrom[0], "在全县信用社旺季工作大会上的讲话");
-		map.put(mFrom[1], "2012-10-21 10:12:44");
-		map.put(mFrom[2], "阅");
-		mData.add(map);
 		map = new HashMap<String, String>();
 		map.put(mFrom[0], "钢铁企业劳务外包存在的问题及解决对策");
-		map.put(mFrom[1], "2012-10-21 10:12:44");
+		map.put(mFrom[1], "2012-10-25");
+		map.put(mFrom[2], "");
+		map = new HashMap<String, String>();
+		map.put(mFrom[0], "在全县信用社旺季工作大会上的讲话");
+		map.put(mFrom[1], "2012-10-23");
+		map.put(mFrom[2], "");
+		mData.add(map);
+		mData.add(map);
+		map.put(mFrom[0], "关于网点标准化改造工作进展情况的汇报");
+		map.put(mFrom[1], "2012-10-21");
 		map.put(mFrom[2], "");
 		mData.add(map);
 
-		mAdapter = new MySimpleAdapter(context, mData,
+		mAdapter = new MySimpleAdapter(container.getContext(), mData,
 				R.layout.tododocument_item, mFrom, mTo);
 		mListView.setAdapter(mAdapter);
 		return view;
@@ -71,7 +66,6 @@ public class ToReadDocumentFragment extends Fragment {
 				List<? extends Map<String, ?>> data, int resource,
 				String[] from, int[] to) {
 			super(context, data, resource, from, to);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override

@@ -21,9 +21,11 @@ import android.widget.Toast;
 import com.mzone.oa.bean.TodoDocumentBean;
 import com.mzone.oa.ui.fragment.AddressBookFragment;
 import com.mzone.oa.ui.fragment.EditDrafFragment;
+import com.mzone.oa.ui.fragment.EmailFragment;
 import com.mzone.oa.ui.fragment.MeetingNotificationFragment;
 import com.mzone.oa.ui.fragment.NotificationPostFragment;
 import com.mzone.oa.ui.fragment.PublicationFragment;
+import com.mzone.oa.ui.fragment.SearchFragment;
 import com.mzone.oa.ui.fragment.ToReadDocumentFragment;
 import com.mzone.oa.ui.fragment.TodoDocumentFragment;
 
@@ -107,6 +109,7 @@ public class MainActivity extends FragmentActivity implements
 		findViewById(R.id.item6).setOnClickListener(this);
 		findViewById(R.id.item7).setOnClickListener(this);
 		findViewById(R.id.item8).setOnClickListener(this);
+		findViewById(R.id.item9).setOnClickListener(this);
 		ImageButton imageButton = (ImageButton) findViewById(R.id.btn_menu);
 		imageButton.setOnClickListener(new OnClickListener() {
 
@@ -196,7 +199,7 @@ public class MainActivity extends FragmentActivity implements
 		case R.id.item2:
 			// 待阅公文
 			setSearchVisibility(false);
-			newContent = new ToReadDocumentFragment(this);
+			newContent = new ToReadDocumentFragment();
 			break;
 		case R.id.item3:
 			// 会议通知
@@ -221,7 +224,12 @@ public class MainActivity extends FragmentActivity implements
 		case R.id.item7:
 			// 信息刊物
 			setSearchVisibility(true);
-			newContent = new PublicationFragment(this);
+			newContent = new EmailFragment();
+			break;
+		case R.id.item9:
+			// 信息刊物
+			setSearchVisibility(true);
+			newContent = new SearchFragment();
 			break;
 		case R.id.btn_menu:
 			int drawerState = mMenuDrawer.getDrawerState();

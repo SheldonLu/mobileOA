@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_email"
-            android:text="邮件系统"
+            android:text="电子邮件"
             style="@style/MenuDrawer.Widget.Title" />
         
 		<TextView
@@ -108,6 +108,14 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_xxkw"
             android:text="信息刊物"
+            style="@style/MenuDrawer.Widget.Title" />
+		
+		<TextView
+            android:id="@+id/item9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_xxkw"
+            android:text="公文查询"
             style="@style/MenuDrawer.Widget.Title" />
 
     </LinearLayout>
