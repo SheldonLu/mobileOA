@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:paddingLeft="16dp"
-                android:text="年度"
+                android:text="按年度"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:paddingLeft="16dp"
-                android:text="文种"
+                android:text="按文种"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/btn2_selector"
-            android:text="查询"
+            android:text="按查询"
             android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>
